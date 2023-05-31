@@ -1,0 +1,584 @@
+.container-fluid {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    color: white;
+    background: rgb(245, 203, 154);
+    background: linear-gradient(180deg, rgba(245, 203, 154, 1) 11%, rgba(255, 192, 119, 1) 49%, rgba(255, 168, 67, 1) 82%);
+    position: relative;
+}
+
+.nav-item,
+.navbar-brand {
+    font-size: 25px !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#landing {
+    height: 100vh !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.name {
+    font-size: 60px;
+    font-family: 'Konkhmer Sleokchher', cursive;
+
+}
+
+.description {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.animation-name {
+    position: relative;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 8em;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 10s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+.box-canvas {
+    margin-top: 25%;
+}
+
+@keyframes animate {
+    0% {
+        background-position: -500%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+
+:root {
+    --purple: #876640;
+    --pink: #b18f68;
+    --yellow: #b18f68;
+    --yellow-dark: #b18f68;
+    --green: #876640;
+
+}
+
+
+
+.box-canvas {
+    position: absolute;
+    display: flex;
+    top: 150px;
+    margin-bottom: 8%;
+    width: 630px;
+    height: 200px;
+    background-image: linear-gradient(transparent,
+            transparent 130px,
+            gray 130px,
+            gray 140px,
+            transparent 140px);
+    background-size: 550px 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: space-between;
+    animation: moveLeft 7s infinite linear;
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(-630px);
+    }
+}
+
+/* Slow down the animation when the train has to travel further */
+@media only screen and (min-width: 600px) {
+    .box-canvas {
+        animation: moveLeft 10s infinite linear;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .box-canvas {
+        animation: moveLeft 13s infinite linear;
+    }
+}
+
+
+
+.front-car {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.cabin {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    background: var(--purple);
+    right: 0;
+}
+
+.cabin::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 10px;
+    background: var(--yellow);
+    left: -20px;
+}
+
+.cabin::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(-45deg, aliceblue, 60%, #65BFF7);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+}
+
+.front {
+    width: 100px;
+    height: 75px;
+    position: absolute;
+    background: var(--pink);
+    top: 75px;
+    border-radius: 40% 0 0 20% / 50%;
+}
+
+/* Chimney */
+.front::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: var(--yellow);
+    position: absolute;
+    top: -40px;
+    left: 25px;
+    clip-path: polygon(20% 100%, 80% 100%, 100% 0, 0 0);
+}
+
+.smoke {
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    width: 80px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    animation: smokeOne 1.5s infinite;
+}
+
+.smoke::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 50px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    animation: smokeTwo 1.5s infinite;
+}
+
+.smoke::after {
+    content: '';
+    position: absolute;
+    top: -68px;
+    right: 0;
+    width: 35px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: smokeThree 1.5s infinite;
+}
+
+@keyframes smokeOne {
+    0% {
+        background: transparent;
+    }
+
+    10% {
+        background: rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes smokeTwo {
+    0% {
+        background: transparent;
+    }
+
+    40% {
+        background: rgba(255, 255, 255, 0.4);
+    }
+}
+
+@keyframes smokeThree {
+    0% {
+        background: transparent;
+    }
+
+    80% {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+
+.wheels {
+    position: absolute;
+    width: 160px;
+    bottom: 10px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.wheel {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    background: var(--pink);
+    border: 22px solid var(--green);
+    border-radius: 50%;
+    border-right-color: var(--yellow);
+    border-left-color: var(--yellow);
+    animation: spin 0.7s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: none;
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.trailer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.skip {
+    position: absolute;
+    width: 200px;
+    height: 10px;
+    background: var(--yellow);
+    top: 70px;
+}
+
+.two .skip::before {
+    background: var(--pink);
+}
+
+.skip::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 200px;
+    height: 70px;
+    background: var(--purple);
+    clip-path: polygon(20% 100%, 80% 100%, 100% 0, 0 0);
+}
+
+/* Footer */
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer-section {
+    background: #151414;
+    position: relative;
+    margin: 0;
+}
+
+.footer-cta {
+    border-bottom: 1px solid #373636;
+}
+
+.single-cta i {
+    color: #ff5e14;
+    font-size: 30px;
+    float: left;
+    margin-top: 8px;
+}
+
+.cta-text {
+    padding-left: 15px;
+    display: inline-block;
+}
+
+.cta-text h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.cta-text span {
+    color: #757575;
+    font-size: 15px;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-pattern img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 330px;
+    background-size: cover;
+    background-position: 100% 100%;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.footer-logo img {
+    max-width: 200px;
+}
+
+.footer-text p {
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #7e7e7e;
+    line-height: 28px;
+}
+
+.footer-social-icon span {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+.footer-social-icon a {
+    color: #fff;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.footer-social-icon i {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+}
+
+.facebook-bg {
+    background: #3B5998;
+}
+
+.twitter-bg {
+    background: #55ACEE;
+}
+
+.google-bg {
+    background: #DD4B39;
+}
+
+.footer-widget-heading h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.footer-widget-heading h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 2px;
+    width: 50px;
+    background: #ff5e14;
+}
+
+.footer-widget ul li {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    margin-bottom: 12px;
+}
+
+.footer-widget ul li a:hover {
+    color: #ff5e14;
+}
+
+.footer-widget ul li a {
+    color: #878787;
+    text-transform: capitalize;
+}
+
+.subscribe-form {
+    position: relative;
+    overflow: hidden;
+}
+
+.subscribe-form input {
+    width: 100%;
+    padding: 14px 28px;
+    background: #2E2E2E;
+    border: 1px solid #2E2E2E;
+    color: #fff;
+}
+
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+
+.subscribe-form button i {
+    color: #fff;
+    font-size: 22px;
+    transform: rotate(-6deg);
+}
+
+.copyright-area {
+    background: #202020;
+    padding: 25px 0;
+}
+
+.copyright-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #878787;
+}
+
+.copyright-text p a {
+    color: #ff5e14;
+}
+
+.footer-menu li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.footer-menu li:hover a {
+    color: #ff5e14;
+}
+
+.footer-menu li a {
+    font-size: 14px;
+    color: #878787;
+}
+
+
+/* About */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.content1 {
+    font-size: 9px !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.container .card {
+    max-width: 300px;
+    height: 215px;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+}
+
+.container .card:hover {
+    height: 500px;
+}
+
+.container .card .imgContainer {
+    position: relative;
+    width: 250px;
+    top: -50px;
+    left: 10px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container .card .imgContainer img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.container .card .content {
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+}
+
+.container .card:hover .content {
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: 0.3s;
+}
+
+@media (max-width: 330px) {
+    .container .card .imgContainer {
+        left: -2px;
+    }
+}
